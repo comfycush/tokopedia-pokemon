@@ -25,8 +25,15 @@ const PokemonList = ({ pokemons, pokemonsOwned }) => {
             href={`/${pokemon.name}`}
           >
             <div className="d-flex justify-content-between">
-              <div>{toTitleCase(pokemon.name)}</div>
-              <div>Owned: {pokemonsOwned[pokemon.name] || 0}</div>
+              <div data-testid={`name-${pokemon.name}`}>
+                {toTitleCase(pokemon.name)}
+              </div>
+              <div
+                data-testid={`owned-${pokemon.name}`}
+                className={`owned-${pokemon.name}`}
+              >
+                Owned: {pokemonsOwned[pokemon.name] || 0}
+              </div>
             </div>
           </ListGroupItem>
         ))}
